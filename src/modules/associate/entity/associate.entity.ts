@@ -14,7 +14,7 @@ export class Associate extends Model<Associate> {
     type: DataType.STRING,
     allowNull: false,
   })
-  AssociayeName: string;
+  AssociateName: string;
 
   @Column({
     type: DataType.STRING,
