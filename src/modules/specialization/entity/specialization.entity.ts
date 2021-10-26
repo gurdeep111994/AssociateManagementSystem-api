@@ -6,5 +6,5 @@ export class Specialization extends Model<Specialization> {
     type: DataType.STRING,
     allowNull: false,
   })
-  SpecializationName: string;
+  specializationName: string;
 }

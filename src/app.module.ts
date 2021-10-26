@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { DatabaseModule } from './core/database/database.module';
+import { AssociateSpecializationModule } from './modules/associate-specialization/associate-specialization.module';
 import { AssociateModule } from './modules/associate/associate.module';
 import { SpecializationModule } from './modules/specialization/specialization.module';
 
@@ -14,6 +15,7 @@ import { SpecializationModule } from './modules/specialization/specialization.mo
     DatabaseModule,
     AssociateModule,
     SpecializationModule,
+    AssociateSpecializationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -2,11 +2,22 @@ import { Module } from '@nestjs/common';
 
 import { SpecializationService } from './specialization.service';
 import { SpecializationController } from './specialization.controller';
-import { specializationProviders } from './specialization.provider';
+import {
+  specializationProviders,
+  specializationServiceProvider,
+} from './specialization.provider';
 
 @Module({
-  providers: [SpecializationService, ...specializationProviders],
+  providers: [
+    SpecializationService,
+    ...specializationServiceProvider,
+    ...specializationProviders,
+  ],
   controllers: [SpecializationController],
-  exports: [SpecializationService, ...specializationProviders],
+  exports: [
+    SpecializationService,
+    ...specializationServiceProvider,
+    ...specializationProviders,
+  ],
 })
 export class SpecializationModule {}

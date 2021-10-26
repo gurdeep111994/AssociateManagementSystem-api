@@ -1,9 +1,10 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsPhoneNumber } from 'class-validator';
 
 export class AssociateDto {
   @IsNotEmpty()
   readonly associateName: string;
 
+  @IsPhoneNumber('US')
   @IsNotEmpty()
   readonly phone: string;
 
@@ -11,5 +12,5 @@ export class AssociateDto {
   readonly address: string;
 
   @IsNotEmpty()
-  readonly specializationId: string;
+  readonly specializationIds: Array<number> = [];
 }

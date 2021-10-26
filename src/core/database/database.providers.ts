@@ -5,6 +5,7 @@ import { databaseConfig } from './database.config';
 
 import { Associate } from '../../modules/associate/entity/associate.entity';
 import { Specialization } from '../../modules/specialization/entity/specialization.entity';
+import { AssociateSpecialization } from 'src/modules/associate-specialization/entity/associate-specialization.entity';
 
 export const databaseProviders = [
   {
@@ -25,7 +26,18 @@ export const databaseProviders = [
           config = databaseConfig.development;
       }
       const sequelize = new Sequelize(config);
-      sequelize.addModels([Specialization, Associate]);
+      sequelize.addModels([Specialization, Associate, AssociateSpecialization]);
+      Associate.belongsToMany(Specialization, {
+        as: 'Specialization',
+        foreignKey: 'associateId',
+        through: 'AssociateSpecialization',
+      });
+      Specialization.belongsToMany(Associate, {
+        as: 'Associate',
+        foreignKey: 'specializationId',
+        through: 'AssociateSpecialization',
+      });
+
       await sequelize.sync({});
       return sequelize;
     },

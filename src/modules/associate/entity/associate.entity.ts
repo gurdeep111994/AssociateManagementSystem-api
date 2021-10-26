@@ -1,12 +1,4 @@
-import {
-  Table,
-  Column,
-  Model,
-  DataType,
-  ForeignKey,
-  BelongsTo,
-} from 'sequelize-typescript';
-import { Specialization } from '../../specialization/entity/specialization.entity';
+import { Table, Column, Model, DataType } from 'sequelize-typescript';
 
 @Table
 export class Associate extends Model<Associate> {
@@ -14,27 +6,17 @@ export class Associate extends Model<Associate> {
     type: DataType.STRING,
     allowNull: false,
   })
-  AssociateName: string;
+  associateName: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  Phone: string;
+  phone: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  Address: string;
-
-  @ForeignKey(() => Specialization)
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
-  SpecializationId: number;
-
-  @BelongsTo(() => Specialization)
-  Specialization: Specialization;
+  address: string;
 }
